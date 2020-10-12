@@ -1,6 +1,7 @@
 angular.module("listaTelefonica").factory("contatosAPI", function ($http, config) {
 	var _getContatos = function () {
-		return $http.get(config.baseUrl + "/contatos");
+		//return $http.get(config.baseUrl + "/contatos");
+		return $http.get(config.baseUrl + "/clientes");
 	};
 
 	var _getContato = function (id) {
