@@ -10,6 +10,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -46,6 +47,7 @@ public class ClienteController {
 
 	}
 	
+	@CrossOrigin
 	@GetMapping("/{clienteId}")
 	public ResponseEntity<Cliente> buscar(@PathVariable Long clienteId) {
 		Optional<Cliente> cliente = clienteRepository.findById(clienteId);
@@ -56,12 +58,14 @@ public class ClienteController {
 		return ResponseEntity.notFound().build();
 	}
 	
-	@PostMapping
+	@CrossOrigin
+	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.CREATED)
 	public Cliente adicionar(@Valid @RequestBody Cliente cliente) {
 		return cadastroClienteService.salvar(cliente);
 	}
 	
+	@CrossOrigin
 	@PutMapping("/{clienteId}")
 	public ResponseEntity<Cliente> atualizar(@Valid @PathVariable Long clienteId, @RequestBody Cliente cliente){
 		
@@ -77,6 +81,7 @@ public class ClienteController {
 		
 	}
 	
+	@CrossOrigin
 	@DeleteMapping("/{clienteId}")
 	public ResponseEntity<Void> remover (@PathVariable Long clienteId){
 		if(!clienteRepository.existsById(clienteId)) {

@@ -1,4 +1,4 @@
-angular.module("listaTelefonica").controller("detalhesContatoCtrl", function ($scope, $routeParams, contato) {
+angular.module("listaTelefonica").controller("detalhesContatoCtrl", function ($scope, $routeParams, cliente) {
 
-	$scope.contato = contato.data;
+	$scope.cliente = cliente.data;
 });

@@ -1,23 +1,28 @@
 angular.module("listaTelefonica").config(function ($routeProvider) {
+	
 	$routeProvider.when("/contatos", {
 		templateUrl: "view/contatos.html",
 		controller: "listaTelefonicaCtrl",
+		
 		resolve: {
-			contatos: function (contatosAPI) {
-				return contatosAPI.getContatos();
+			clientes: function (contatosAPI) {
+				return contatosAPI.getClientes();
 			}
 		}
+	
 	});
+	
 	$routeProvider.when("/novoContato", {
 		templateUrl: "view/novoContato.html",
 		controller: "novoContatoCtrl",
 	});
+
 	$routeProvider.when("/detalhesContato/:id", {
 		templateUrl: "view/detalhesContato.html",
 		controller: "detalhesContatoCtrl",
 		resolve: {
-			contato: function (contatosAPI, $route) {
-				return contatosAPI.getContato($route.current.params.id);
+			cliente: function (contatosAPI, $route) {
+				return contatosAPI.getCliente($route.current.params.id);
 			}
 		}
 	});
@@ -33,5 +38,5 @@ angular.module("listaTelefonica").config(function ($routeProvider) {
 
 
 
-	$routeProvider.otherwise({redirectTo: "/contatos"});
+	$routeProvider.otherwise({redirectTo: "/login"});
 });

@@ -1,13 +1,26 @@
 <div class="jumbotron">
 	<table class="table">
+		
 		<tr>
-			<td>{{contato.nome}}</td>
+			<td> <p> ID </p> </td>
+			<td>{{cliente.id_cliente}}</td>
+		</tr>
+
+		<tr>
+			<td><p>Descricao </p> </td>
+			<td>{{cliente.descricao}}</td>
 		</tr>
 		<tr>
-			<td>{{contato.telefone}}</td>
+			<td><p> Cpf/Cnpj</p> </td>
+			<td>{{cliente.cpfCnpj}}</td>
 		</tr>
 		<tr>
-			<td>{{contato.data | date:"dd/MM/yyyy"}}</td>
+			<td> <p> Email </p> </td>
+			<td>{{cliente.email}}</td>
+		</tr>
+		<tr>
+			<td><p> Tipo </p> </td>
+			<td>{{cliente.tipo}}</td>
 		</tr>
 	</table>
 	<a class="btn btn-primary" href="#/contatos">Voltar</a>

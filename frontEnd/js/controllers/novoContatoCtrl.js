@@ -1,9 +1,13 @@
 angular.module("listaTelefonica").controller("novoContatoCtrl", function ($scope, contatosAPI, $location) {
 
-	$scope.adicionarContato = function (contato) {
-		contatosAPI.saveContato(contato).then(function (data) {
-			delete $scope.contato;
-			$scope.contatoForm.$setPristine();
+	$scope.adicionarCliente = function (cliente) {
+
+		contatosAPI.saveCliente(cliente).then(function (data) {
+			
+			console.log(data)
+			
+			delete $scope.cliente;
+
 			$location.path("/contatos");
 		});
 	};
