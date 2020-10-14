@@ -1,4 +1,4 @@
-CREATE TABLE cad_cliente(
+CREATE TABLE cliente(
 	id_cliente BIGINT NOT NULL AUTO_INCREMENT,
 	cpf_cnpj VARCHAR(18),
 	descricao VARCHAR (60) NOT NULL,
