@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -82,7 +83,7 @@ public class ClienteController {
 	}
 	
 	@CrossOrigin
-	@DeleteMapping("/{clienteId}")
+	@DeleteMapping(value = "/{clienteId}")
 	public ResponseEntity<Void> remover (@PathVariable Long clienteId){
 		if(!clienteRepository.existsById(clienteId)) {
 			return ResponseEntity.notFound().build();

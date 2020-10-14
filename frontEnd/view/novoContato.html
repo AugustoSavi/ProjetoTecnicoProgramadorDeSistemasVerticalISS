@@ -1,6 +1,11 @@
 <div class="jumbotron">
 	<form name="contatoForm">
+		
 		{{cliente}}
+		{{cadastroTelefones}}
+		{{Telefones}}
+
+		<p> Cadastro de Cliente</p>
 		<select class="form-control" ng-model="cliente.tipo">
 			<option value="">Selecione o tipo</option>
 			<option>Pessoa Física</option>
@@ -8,15 +13,52 @@
 		</select>
 		
 		<div ng-show="cliente.tipo === 'Pessoa Física'">
+
 			<input class="form-control" type="text" ng-model="cliente.descricao" name="nome" placeholder="Nome" ng-required="true"/>
 			<input class="form-control" type="text" ng-model="cliente.cpfCnpj" name="cpf" placeholder="CPF" ng-required="true"/>
-		<input class="form-control" type="text" ng-model="cliente.telefone" name="telefone" placeholder="Telefone" ng-required="true"/>
+			
+			<p> Cadastro de Telefone</p>
+			
+			<input class="form-control" type="text" ng-model="cliente.numero" placeholder="Numero"/>
+
+
+			<button class="btn btn-primary" ng-click="adicionarNovoTelefone(cadastroTelefones)"> + </button>
+			
+			<p> Cadastro de Endereço</p>
+			
+			<input class="form-control" type="text" ng-model="cliente.endereco" placeholder="Endereco"/>
+			<input class="form-control" type="text" ng-model="cliente.cep" placeholder="cep"/>
+			<input class="form-control" type="text" ng-model="cliente.bairro" placeholder="bairro"/>
+			<input class="form-control" type="text" ng-model="cliente.cidade" placeholder="cidade"/> 
+			<input class="form-control" type="text" ng-model="cliente.complemento" placeholder="complemento"/> 
+			<input class="form-control" type="text" ng-model="cliente.numeroendereco" placeholder="numero endereco"/> 
+			
+			<button class="btn btn-primary" ng-click="adicionarNovoEndereco(cadastroTelefones)"> + </button>
+
+
 		</div>
 
 		<div ng-show="cliente.tipo === 'Pessoa Jurídica'">
-			<input class="form-control" type="text" ng-model="cliente.Descricao" name="nomeFantasia" placeholder="Nome Fantasia" ng-required="true" ng-minlength="10"/>
+			<input class="form-control" type="text" ng-model="cliente.Descricao" name="Razão Social" placeholder="Razão Social" ng-required="true" ng-minlength="10"/>
 			<input class="form-control" type="text" ng-model="cliente.cpfCnpj" name="cnpj" placeholder="CNPJ" ng-required="true"/>
-			<input class="form-control" type="text" ng-model="cliente.telefone" name="telefone" placeholder="Telefone" ng-required="true"/>
+			
+			<p> Cadastro de Telefone</p>
+			
+			<input class="form-control" type="text" ng-model="cliente.numero" placeholder="Numero"/>
+
+
+			<button class="btn btn-primary" ng-click="adicionarNovoTelefone(cadastroTelefones)"> + </button>
+			
+			<p> Cadastro de Endereço</p>
+			
+			<input class="form-control" type="text" ng-model="cliente.endereco" placeholder="Endereco"/>
+			<input class="form-control" type="text" ng-model="cliente.cep" placeholder="cep"/>
+			<input class="form-control" type="text" ng-model="cliente.bairro" placeholder="bairro"/>
+			<input class="form-control" type="text" ng-model="cliente.cidade" placeholder="cidade"/> 
+			<input class="form-control" type="text" ng-model="cliente.complemento" placeholder="complemento"/> 
+			<input class="form-control" type="text" ng-model="cliente.numeroendereco" placeholder="numero endereco"/> 
+			
+			<button class="btn btn-primary" ng-click="adicionarNovoEndereco(cadastroTelefones)"> + </button>
 		</div>
 	</form>
 	<button class="btn btn-primary btn-block" ng-click="adicionarCliente(cliente)">Adicionar cliente</button>

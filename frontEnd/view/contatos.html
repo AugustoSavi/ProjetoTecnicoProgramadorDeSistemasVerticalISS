@@ -4,20 +4,32 @@
 	<table ng-show="clientes.length > 0" class="table table-striped">
 		<tr>
 			<th></th>
-			<th><a href="" ng-click="ordenarPor('nome')">Nome</a></th>
-			<th><a href="" ng-click="ordenarPor('cpfCnpj')">Cpf-Cnpj</a></th>
-			<th><a href="" ng-click="ordenarPor('email')">E-mail</a></th>
-			<th><a href="" ng-click="ordenarPor('tipo')">Tipo</a></th>
+			<th>Nome</th>
+			<th>Cpf/Cnpj</th>
+			<th>E-mail</th>
+			<th>Tipo</th>
+
 		</tr>
 		<tr ng-class="{'selecionado negrito': contato.selecionado}" ng-repeat="cliente in clientes | filter:criterioDeBusca">
-			<td><input type="checkbox" ng-model="contato.selecionado" ng-click="verificarContatoSelecionado(contatos)"/></td>
+			
+			<td>	
+				<button class="btn"ng-click="apagarContatos(cliente)">
+
+					<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+					</svg>
+		
+				</button>
+			
+			</td>
+
 			<td><a href="#/detalhesContato/{{cliente.id_cliente}}">{{cliente.descricao}}</a></td>
 			<td>{{cliente.cpfCnpj}}</td>
 			<td>{{cliente.email}}</td>
 			<td>{{cliente.tipo}}</td>
+
 		</tr>
 	</table>
 	<hr/>
 	<a class="btn btn-primary btn-block" href="#/novoContato">Novo Contato</a>
-	<button class="btn btn-danger btn-block" ng-click="apagarContatos(contatos)" ng-if="hasContatoSelecionado">Apagar Contatos</button>
 </div>

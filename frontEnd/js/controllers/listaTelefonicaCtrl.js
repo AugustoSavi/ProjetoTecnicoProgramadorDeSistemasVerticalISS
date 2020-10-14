@@ -1,37 +1,20 @@
-angular.module("listaTelefonica").controller("listaTelefonicaCtrl", function ($scope, clientes, $filter) {
+angular.module("listaTelefonica").controller("listaTelefonicaCtrl", function ($scope, clientes, contatosAPI,$location) {
 
 	$scope.clientes = clientes.data;
 
-	$scope.adicionarCliente = function (clientes) {
 
-		contatosAPI.saveContato(clientes).then(function (data) {
-			delete $scope.cliente;
-			$scope.contatoForm.$setPristine();
-			carregarContatos();
-		});
-	};
-	
 	$scope.apagarContatos = function (cliente) {
 
-		$scope.cliente = cliente.filter(function (cliente) {
-			if (!cliente.selecionado) return cliente;
+		contatosAPI.deleteCliente(cliente.id_cliente).then(function (data) {
+
+
+			delete $scope.cliente;
+
+			$location.path("/contatos");
+
+			
 		});
 
-		$scope.verificarContatoSelecionado($scope.contatos);
 	};
 
-	$scope.verificarContatoSelecionado = function (clientes) {
-		
-		$scope.hasContatoSelecionado = clientes.some(function (cliente) {
-			return cliente.selecionado;
-		});
-	};
-
-	$scope.ordenarPor = function (campo) {
-		
-		$scope.criterioDeOrdenacao = campo;
-		$scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
-	
-	};
-	
 });

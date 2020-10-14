@@ -20,9 +20,14 @@ angular.module("listaTelefonica").factory("contatosAPI", function ($http, config
 		data: cliente});
 	};
 
+	var _deleteCliente = function (id) {
+		return $http.delete(config.baseUrl + "/clientes/" + id);
+	};
+
 	return {
 		getClientes: _getClientes,
 		getCliente: _getCliente,
-		saveCliente: _saveCliente
+		saveCliente: _saveCliente,
+		deleteCliente: _deleteCliente,
 	};
 });
