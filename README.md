@@ -63,3 +63,16 @@ JSON body:
 
 # Delete Cliente
 DELETE http://localhost:8080/clientes/{id_cliente}
+
+```
+### RoadMap
+
+10/10/2020 - Curso JavaSpring algaworks
+
+11/10/2020 - Curso Angularjs Rodrigo Branas
+
+12/10/2020 - inicio do Desenvolvimento do projeto
+
+
+### Atenção
+Indenpendente do resultado da contratação agradeço pelo desafio e darei continuidade nele apos passar o periodo de entrega e resultado
